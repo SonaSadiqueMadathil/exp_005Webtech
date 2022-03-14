@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function BMI_calc(){
+        Height=document.getElementById('height').value;
+        weight=document.getElementById('weight').value;
+        var BMI=weight/Height**2;
+        document.getElementById("BMI").innerHTML="Your BMI is : "+BMI;
+    if (BMI < 18.5)
+    {
+
+        document.getElementById("underweight").innerHTML="Your body type is : Underweight";
+        
+    }
+    else if (BMI >= 18 && BMI < 25)
+    {
+        document.getElementById("Normal").innerHTML="Your body type is : Normal";
+    }
+    else if (BMI > 25 && BMI <= 30)
+    {
+        document.getElementById("overweight").innerHTML="Your body type is : Overweight";
+    }
+    else if(BMI>30){
+
+        document.getElementById("obese").innerHTML="Your body type is : Obese";
+
+        }
+        }
+        
+    </script>
+    </head>
+    <body>
+        <div style="margin: 0px; padding:0px">
+        <fieldset style="width: 35%; margin: 0px; padding: 0px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Weight:<input type="text" id="weight" style="margin: 5px; margin-left:30px;" required><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Height:<input type="text" id="height" style="margin: 5px; margin-left:30px;" required><br><br>
+            <input type="button" value="Click" id="text2" onclick="BMI_calc()" style="margin:5px; margin-left: 30px;"><br><br>
+        </fieldset>
+        </div>
+        <br><br>
+        <div id="BMI"></div>
+        <div id="underweight"></div>
+        <div id="Normal"></div>
+        <div id="overweight"></div>
+        <div id="obese"></div>
+
+    </body>
+</html>
+

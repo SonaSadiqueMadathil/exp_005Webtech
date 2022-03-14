@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cake Order</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function cake_order_calculation(){
+
+                var small_cake=100;
+                var medium_cake=200;
+                var large_cake=400;
+                var x = document.getElementById("mySelect").selectedIndex;
+                if(x===1){
+
+                    small_cake=100+((9/100)*100);
+
+                    if(document.getElementById("smallcake").checked)
+                    {
+                        small_cake=100+((9/100)*100)+10;
+                        document.getElementById("smallCake").innerHTML="The Total Price is "+small_cake;
+
+                    }
+                    document.getElementById("smallCake").innerHTML="The Total Price is "+small_cake;
+
+                }
+                if(x===2){
+
+                    medium_cake=200+((9/100)*200);
+                    if(document.getElementById("mediumcake").checked === true)
+                    {
+                        medium_cake=200+((9/100)*200)+30;
+                        document.getElementById("mediumCake").innerHTML="The Total Price is "+medium_cake;
+
+                    }
+
+                    document.getElementById("mediumCake").innerHTML="The Total Price is "+medium_cake;
+
+                }
+                if(x===3){
+
+                    large_cake=400+((9/100)*400);
+                    if(document.getElementById("largecake").checked === true)
+                    {
+                        large_cake=400+((9/100)*400)+80;
+                        document.getElementById("largeCake").innerHTML="The Total Price is "+large_cake;
+                        
+                    }
+                    document.getElementById("largeCake").innerHTML="The Total Price is "+large_cake;
+
+                }
+
+
+
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1>Cake Order Calculation</h1>
+        <div style="margin: 0px; padding:0px">
+            <fieldset style="width: 35%; margin: 0px; padding: 0px; background-color: black; color: red;" >
+                &nbsp;&nbsp;&nbsp;&nbsp; Select what you want :<select id="mySelect" style="margin: 5px; margin-left:30px;">
+                    <option>Select</option>
+                    <option>Small Cake</option>
+                    <option>Medium Cake</option>
+                    <option>Large Cake</option>
+                </select>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for small cake<input type="radio" name="cake" value="small cake" id="smallcake" style="margin: 5px; margin-left: 27px;"><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for medium cake<input type="radio" name="cake" value="medium cake" id="mediumcake" style="margin: 5px; margin-left: 10px;" ><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for large cake<input type="radio" name="cake" value="large cake" id="largecake" style="margin: 5px; margin-left: 29px;"><br><br>
+
+                <input type="button" value="Click" id="submit" onclick="cake_order_calculation()" style="margin:5px; margin-left: 30px;"><br><br>
+            </fieldset>
+            <br><br>
+            <div id="smallCake"></div>
+            <div id="mediumCake"></div>
+            <div id="largeCake"></div>
+
+    </body>
+</html>
+

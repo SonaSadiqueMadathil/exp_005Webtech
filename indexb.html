@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Long-short-word-finder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function grow(){
+               var arr = ["orange.jpeg","apple.jpeg", "mango.jpeg","grape.jpeg"];
+               var count = Array(arr.length).fill(0);
+                var x = document.getElementById("rows").value;
+                var y = document.getElementById("Columns").value;
+                var row=0;
+                for(var i=0;i<x;i++)
+                {
+                    for(var j=0;j<y;j++)
+                    {
+                        var ran_num = Math.floor(Math.random() *arr.length);
+                        if(count[ran_num]<((x*y)/arr.length))
+                        {
+                            document.getElementById("garden").innerHTML+="<img src="+arr[ran_num]+" width=100px height=100px alt=An image was here>";
+                            row+=1;
+                            count[ran_num]+=1;
+                            if(row==y)
+                                    {
+                                        
+                                         document.getElementById("garden").innerHTML+="<br>";
+                                          row=0;
+                                    }
+                        }
+                        else{
+                            for(var k=0;k<count.length;k++)
+                            {
+                                if(count[k]<((x*y)/arr.length))
+                                {
+                                    document.getElementById("garden").innerHTML+="<img src="+arr[k]+" width=100px height=100px alt=An image>";
+                                    row+=1;
+                                    count[k]+=1;
+                                    if(row==y)
+                                    {
+                                                document.getElementById("garden").innerHTML+="<br>";
+                                          row=0;
+                                          break;
+                                    }
+                                }
+                            }
+                        }
+                 }
+                }
+                document.getElementById("garden").innerHTML+="<br>";
+                          }
+    </script>
+</head>
+
+        <h2>
+            Fruit Farm
+        </h2>
+        <div>
+            Rows: <input type="text" id="rows"/>
+            columns: <input type="text" id ="Columns" /> <br><br>
+            <button onclick="grow();">Plant Garden</button>
+        </div>
+        <br><br>
+        <div id="garden" ></div>
+</html>
+

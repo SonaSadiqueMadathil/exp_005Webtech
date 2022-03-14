@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exp_005.1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+       
+    function find_longest_word(){
+        str=document.getElementById('str').value
+        var strSplit = str.split(' ');
+        var longestWord = strSplit[0];
+        var shortestWord = strSplit[0];
+        for(var i = 1; i < strSplit.length; i++){
+            if(strSplit[i].length > longestWord.length){
+            longestWord = strSplit[i];
+        }
+        if(strSplit[i].length < longestWord.length){
+            shortestWord = strSplit[i];
+    }
+    document.getElementById("answer").innerHTML="The longest word is  : "+longestWord;
+    document.getElementById("answer1").innerHTML="The shorte`st word is  : "+shortestWord;
+    }
+}
+    </script>
+    </head>
+    <body>
+
+        <div>
+            Enter the string you want :<input type="text" id="str">
+            <input type="button" value="Click" id="text2" onclick="find_longest_word()">
+        </div>
+
+        <div id="answer">
+        </div>
+        <div id="answer1">
+        </div>
+
+        
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function BMI_calc(){
+        Height=document.getElementById('height').value;
+        weight=document.getElementById('weight').value;
+        var BMI=weight/Height**2;
+        document.getElementById("BMI").innerHTML="Your BMI is : "+BMI;
+    if (BMI < 18.5)
+    {
+
+        document.getElementById("underweight").innerHTML="Your body type is : Underweight";
+        
+    }
+    else if (BMI >= 18 && BMI < 25)
+    {
+        document.getElementById("Normal").innerHTML="Your body type is : Normal";
+    }
+    else if (BMI > 25 && BMI <= 30)
+    {
+        document.getElementById("overweight").innerHTML="Your body type is : Overweight";
+    }
+    else if(BMI>30){
+
+        document.getElementById("obese").innerHTML="Your body type is : Obese";
+
+        }
+        }
+        
+    </script>
+    </head>
+    <body>
+        <div style="margin: 0px; padding:0px">
+        <fieldset style="width: 35%; margin: 0px; padding: 0px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Weight:<input type="text" id="weight" style="margin: 5px; margin-left:30px;" required><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Height:<input type="text" id="height" style="margin: 5px; margin-left:30px;" required><br><br>
+            <input type="button" value="Click" id="text2" onclick="BMI_calc()" style="margin:5px; margin-left: 30px;"><br><br>
+        </fieldset>
+        </div>
+        <br><br>
+        <div id="BMI"></div>
+        <div id="underweight"></div>
+        <div id="Normal"></div>
+        <div id="overweight"></div>
+        <div id="obese"></div>
+
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Long-short-word-finder</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function grow(){
+               var arr = ["orange.jpeg","apple.jpeg", "mango.jpeg","grape.jpeg"];
+               var count = Array(arr.length).fill(0);
+                var x = document.getElementById("rows").value;
+                var y = document.getElementById("Columns").value;
+                var row=0;
+                for(var i=0;i<x;i++)
+                {
+                    for(var j=0;j<y;j++)
+                    {
+                        var ran_num = Math.floor(Math.random() *arr.length);
+                        if(count[ran_num]<((x*y)/arr.length))
+                        {
+                            document.getElementById("garden").innerHTML+="<img src="+arr[ran_num]+" width=100px height=100px alt=An image was here>";
+                            row+=1;
+                            count[ran_num]+=1;
+                            if(row==y)
+                                    {
+                                        
+                                         document.getElementById("garden").innerHTML+="<br>";
+                                          row=0;
+                                    }
+                        }
+                        else{
+                            for(var k=0;k<count.length;k++)
+                            {
+                                if(count[k]<((x*y)/arr.length))
+                                {
+                                    document.getElementById("garden").innerHTML+="<img src="+arr[k]+" width=100px height=100px alt=An image>";
+                                    row+=1;
+                                    count[k]+=1;
+                                    if(row==y)
+                                    {
+                                                document.getElementById("garden").innerHTML+="<br>";
+                                          row=0;
+                                          break;
+                                    }
+                                }
+                            }
+                        }
+                 }
+                }
+                document.getElementById("garden").innerHTML+="<br>";
+                          }
+    </script>
+</head>
+
+        <h2>
+            Fruit Farm
+        </h2>
+        <div>
+            Rows: <input type="text" id="rows"/>
+            columns: <input type="text" id ="Columns" /> <br><br>
+            <button onclick="grow();">Plant Garden</button>
+        </div>
+        <br><br>
+        <div id="garden" ></div>
+</html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cake Order</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function cake_order_calculation(){
+
+                var small_cake=100;
+                var medium_cake=200;
+                var large_cake=400;
+                var x = document.getElementById("mySelect").selectedIndex;
+                if(x===1){
+
+                    small_cake=100+((9/100)*100);
+
+                    if(document.getElementById("smallcake").checked)
+                    {
+                        small_cake=100+((9/100)*100)+10;
+                        document.getElementById("smallCake").innerHTML="The Total Price is "+small_cake;
+
+                    }
+                    document.getElementById("smallCake").innerHTML="The Total Price is "+small_cake;
+
+                }
+                if(x===2){
+
+                    medium_cake=200+((9/100)*200);
+                    if(document.getElementById("mediumcake").checked === true)
+                    {
+                        medium_cake=200+((9/100)*200)+30;
+                        document.getElementById("mediumCake").innerHTML="The Total Price is "+medium_cake;
+
+                    }
+
+                    document.getElementById("mediumCake").innerHTML="The Total Price is "+medium_cake;
+
+                }
+                if(x===3){
+
+                    large_cake=400+((9/100)*400);
+                    if(document.getElementById("largecake").checked === true)
+                    {
+                        large_cake=400+((9/100)*400)+80;
+                        document.getElementById("largeCake").innerHTML="The Total Price is "+large_cake;
+                        
+                    }
+                    document.getElementById("largeCake").innerHTML="The Total Price is "+large_cake;
+
+                }
+
+
+
+            }
+           
+        </script>
+    </head>
+    <body>
+        <h1>Cake Order Calculation</h1>
+        <div style="margin: 0px; padding:0px">
+            <fieldset style="width: 35%; margin: 0px; padding: 0px; background-color: black; color: palevioletred;" >
+                &nbsp;&nbsp;&nbsp;&nbsp; Select what you want :<select id="mySelect" style="margin: 5px; margin-left:30px;">
+                    <option>Select</option>
+                    <option>Small Cake</option>
+                    <option>Medium Cake</option>
+                    <option>Large Cake</option>
+                </select>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for small cake<input type="radio" name="cake" value="small cake" id="smallcake" style="margin: 5px; margin-left: 27px;"><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for medium cake<input type="radio" name="cake" value="medium cake" id="mediumcake" style="margin: 5px; margin-left: 10px;" ><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Tip for large cake<input type="radio" name="cake" value="large cake" id="largecake" style="margin: 5px; margin-left: 29px;"><br><br>
+
+                <input type="button" value="Click" id="submit" onclick="cake_order_calculation()" style="margin:5px; margin-left: 30px;"><br><br>
+            </fieldset>
+            <br><br>
+            <div id="smallCake"></div>
+            <div id="mediumCake"></div>
+            <div id="largeCake"></div>
+
+    </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <head>
+    <title>Coin Flip</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var tails = 0;
+            var heads = 0;
+            var clicks = 0;
+            function clicked(){
+                clicks += 1;
+                document.getElementById("seq").innerHTML = clicks;
+            }
+
+            function toss() {
+                var rows = 0;
+                document.getElementById("results").innerHTML = "";
+                while (rows < 1) {   
+                    var arr = new Array();
+                    for (var i = 0; i < 1; i++) {       
+                        var val = Math.floor( Math.random() * 2 );
+                        if (val === 1) {
+                            arr[i] = imageHeads("https://tse3.mm.bing.net/th?id=OIP.oGK8WWuy_q1c2OTu2sd3vQAAAA&pid=Api&P=0&w=174&h=176");
+                            heads = heads + 1;
+                            checkHeads();
+                        } 
+                        else {
+                            arr[i] = imageTails("https://tse1.mm.bing.net/th?id=OIP.eTegboGgQn2VVOCIwGBGRQHaHa&pid=Api&P=0&w=201&h=201");
+                            tails = tails + 1;
+                            checkTails();
+                        }       
+        }
+            document.getElementById("results").appendChild(arr[0]);
+            delete arr;
+            rows++;
+        }
+            clicked();
+        }
+
+function checkHeads()
+{
+    document.getElementById("headsDisplay").innerHTML = heads;
+}
+
+function checkTails()
+{
+    document.getElementById("tailsDisplay").innerHTML = tails;
+}
+
+
+function imageHeads(src) {
+    var img = document.createElement("img");
+    img.src = src;
+    return img; 
+
+}
+
+function imageTails(src) {
+    var img = document.createElement("img");
+    img.src = src;
+    return img; 
+}
+        </script>
+    </head>
+    
+<div id="display"> <h1>Coin Flip</h1>
+<table>
+    <tr>
+        <td><input type="button" id="toss" value=" Flip Coin " onclick="toss()"></td>
+    </tr>
+    <tr>
+        <td>Number of Flips Performed: <span id="seq">0</span></td>
+    </tr>   
+    <tr>
+        <td>Heads Count: <span id="headsDisplay">0</span></td>
+    </tr>
+    <tr>    
+        <td>Tails Count: <span id="tailsDisplay">0</span></td>
+    </tr>   
+    <tr>
+        <td><span id="results"><img id="myImg" src=""></span></td>
+    </tr>
+</table>
+</div> 
+</body>
+</html>
